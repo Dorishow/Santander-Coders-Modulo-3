@@ -7,9 +7,14 @@ class Book {
         this.read = read;
         this.date = date;
     }
-    
-    changeStatus(){
+
+     changeStatus(){
         this.read = !this.read
+        this.updateDate()
+    }
+
+    updateDate(){
+        this.date = this.read ? new Date() : 'blank'
     }
 
 }
