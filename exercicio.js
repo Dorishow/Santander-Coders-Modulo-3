@@ -7,6 +7,10 @@ class Book {
         this.read = read;
         this.date = date;
     }
+    
+    changeStatus(){
+        this.read = !this.read
+    }
 
 }
 
@@ -14,5 +18,4 @@ const livro = new Book ({
     title: 'asd',
     genre: 'horror',
     author: 'fulano',
-    
 })
