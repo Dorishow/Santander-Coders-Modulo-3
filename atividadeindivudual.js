@@ -17,8 +17,8 @@ class Person{
 }
 
 class Teacher extends Person{
-    constructor(firstName, lastName, age, gender, interests, subject){
-        super(firstName, lastName, age, gender, interests)
+    constructor({firstName, lastName, age, gender, interests, subject}){
+        super({firstName, lastName, age, gender, interests})
         this.subject = subject
     }
 
