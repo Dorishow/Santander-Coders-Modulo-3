@@ -1,16 +1,18 @@
 class Book {
 
-    constructor(title, genre, author, date){
+    constructor({title, genre, author, read = false , date = ''}){
         this.title = title;
         this.genre = genre;
         this.author = author;
-        this.read = false;
-        this.date = date
+        this.read = read;
+        this.date = date;
     }
 
 }
 
-class BookList{
-
-    construct
-}
+const livro = new Book ({
+    title: 'asd',
+    genre: 'horror',
+    author: 'fulano',
+    
+})
