@@ -52,6 +52,7 @@ class BookList{
     listAllBooks(){return this.allBooks}
     numberOfReadBooks(){return this.readBooks.length}
     numberOfUnreadBooks(){return this.unreadBooks.length}
+    getCurrentBook(){return this.actualBook}
 }
 
 
@@ -110,3 +111,7 @@ console.log(nDeLidos)
 const nDeNaoLidos = bookList.numberOfUnreadBooks()
 console.log("quantidade de livros que ainda não foram lidos")
 console.log(nDeNaoLidos)
+
+const currentBook = bookList.getCurrentBook()
+console.log("Livro que está sendo lido atualmente")
+console.log(currentBook)
