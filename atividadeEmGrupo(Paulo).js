@@ -28,6 +28,7 @@ class BookList{
         this.nextBook= undefined;
         this.allBooks= bookList;
     }
+
     countBooksNotRead(){
         let booksNotRead = 0;
         for (let book of this.allBooks){
@@ -37,9 +38,11 @@ class BookList{
         }
         return booksNotRead;
     }
+
     addBook(book){
         return this.allBooks = [...this.allBooks, book];
     }
+
     nextUnreadBook(){
         for (let book of this.allBooks){
             if (!book.read){
@@ -52,6 +55,7 @@ class BookList{
         this.currentBook = this.nextBook;
         this.nextBook = nextUnreadBook();
     }
+
 }
 
 const animalFarm = new Book ({
@@ -73,3 +77,8 @@ const hobbit = new Book ({
 });
 
 const favoriteBooksList = new BookList([animalFarm, dracula]);
+
+console.log(favoriteBooksList.readBooks)
+console.log(favoriteBooksList.actualBook)
+console.log(favoriteBooksList.addBook(hobbit))
+console.log(favoriteBooksList.allBooks)
