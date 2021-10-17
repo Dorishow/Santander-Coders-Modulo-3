@@ -1,5 +1,4 @@
 class Book {
-
     constructor({title, genre, author, read = false , date = ''}){
         this.title = title;
         this.genre = genre;
@@ -19,35 +18,38 @@ class Book {
 }
 
 
-class BookList extends Book{
+class BookList{
 
     constructor(){
-        super(Book)
         this.actualBook;
+        this.allBooks = [];
         this.readBooks = [];
-        this.nextBooks = [];
+        this.unreadBooks = [];
     }
+    
     addBook(book){
         if(this.actualBook){
-            this.nextBooks = [...this.nextBooks, book]
+            this.unreadBooks = [...this.unreadBooks, book]
         }else{
             this.actualBook = book;
         }
+        this.allBooks = [...this.allBooks, book]
     }
 
     finishBook(){
         if(this.actualBook){
         this.actualBook.changeStatus();
         this.readBooks = [...this.readBooks, this.actualBook]
-        this.actualBook = this.nextBooks.shift()
+        this.actualBook = this.unreadBooks.shift()
         }else{
             return 'Você não está lendo nenhum livro'
         }
     }
 
-    get lastBook(){
-        return this.readBooks[(this.readBooks.length -1)]
-    }
+    getlastBook(){return this.readBooks[(this.readBooks.length -1)]}
+    listAllBooks(){return this.allBooks}
+    numberOfReadBooks(){return this.readBooks.length}
+    numberOfUnreadBooks(){return this.unreadBooks.length}
 }
 
 
@@ -89,4 +91,19 @@ bookList.addBook(bookDracula)
 bookList.addBook(bookTheLordOfTheRings)
 bookList.addBook(bookGameOfThrones)
 
+bookList.finishBook()
+const todos = bookList.listAllBooks()
+console.log("todos")
+console.log(todos)
 
+const ultimo = bookList.getlastBook()
+console.log("ultimo")
+console.log(ultimo)
+
+const nDeLidos = bookList.numberOfReadBooks()
+console.log("quantidade de livros lidos")
+console.log(nDeLidos)
+
+const nDeNaoLidos = bookList.numberOfUnreadBooks()
+console.log("quantidade de livros que ainda não foram lidos")
+console.log(nDeNaoLidos)
