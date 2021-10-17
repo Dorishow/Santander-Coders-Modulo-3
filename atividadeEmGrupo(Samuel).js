@@ -53,26 +53,18 @@ class BookList{
         return this.readBooks[lastPosition] // Retorna o último livro adicionado à estante de livros lidos
     }
     
-    listAllBooks(){
-        return this.allBooks
-    }
-
-    numberOfReadBooks(){
-        return this.readBooks.length
-    }
-
-    numberOfUnreadBooks(){
-        return this.unreadBooks.length
-    }
-
-    getCurrentBook(){
-        return this.actualBook
-    }
-    
     nextBookToRead(){
         const [nextBook] = this.unreadBooks
         return nextBook
     }
+
+    listAllBooks = () => this.allBooks
+
+    numberOfReadBooks = () => this.readBooks.length
+
+    numberOfUnreadBooks = () => this.unreadBooks.length
+
+    getCurrentBook = () => this.actualBook
 }
 
 
