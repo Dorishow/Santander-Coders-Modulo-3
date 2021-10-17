@@ -7,7 +7,7 @@ class Book {
         this.date = date;
     }
 
-    changeStatus(){ 
+    markAsFinished(){ 
         // Marca que o livro foi lido e adiciona a data da conclusão da leitura
         this.read = !this.read
         this.updateDate()
@@ -40,7 +40,7 @@ class BookList{
 
     finishBook(){
         if(this.actualBook){
-        this.actualBook.changeStatus(); //Marca que o livro já foi lido e adiciona a data de conclusão
+        this.actualBook.markAsFinished(); //Marca que o livro já foi lido e adiciona a data de conclusão
         this.readBooks = [...this.readBooks, this.actualBook] //Adiciona na estante de livros lidos
         this.actualBook = this.unreadBooks.shift()
         }else{
@@ -48,12 +48,31 @@ class BookList{
         }
     }
 
-    getlastReadBook(){return this.readBooks[(this.readBooks.length -1)]}
-    listAllBooks(){return this.allBooks}
-    numberOfReadBooks(){return this.readBooks.length}
-    numberOfUnreadBooks(){return this.unreadBooks.length}
-    getCurrentBook(){return this.actualBook}
-    nextBookToRead(){return this.unreadBooks[0]}
+    getlastReadBook(){
+        const lastPosition = this.readBooks.length - 1 // Pega a última posição do array de livros lidos
+        return this.readBooks[lastPosition] // Retorna o último livro adicionado à estante de livros lidos
+    }
+    
+    listAllBooks(){
+        return this.allBooks
+    }
+
+    numberOfReadBooks(){
+        return this.readBooks.length
+    }
+
+    numberOfUnreadBooks(){
+        return this.unreadBooks.length
+    }
+
+    getCurrentBook(){
+        return this.actualBook
+    }
+    
+    nextBookToRead(){
+        const [nextBook] = this.unreadBooks
+        return nextBook
+    }
 }
 
 
@@ -61,6 +80,12 @@ const book1984 = new Book ({
     title: '1984',
     genre: 'dystopian fiction',
     author: 'George Orwell', 
+})
+
+const macunaima = new Book ({
+    title: 'Macunaíma',
+    genre: 'comedy',
+    author: 'Mario de Andrade', 
 })
 
 const bookAnimalFarm = new Book ({
@@ -90,6 +115,7 @@ const bookGameOfThrones = new Book ({
 const bookList = new BookList;
 
 bookList.addBook(book1984)
+bookList.addBook(macunaima)
 bookList.addBook(bookAnimalFarm)
 bookList.addBook(bookDracula)
 bookList.addBook(bookTheLordOfTheRings)
