@@ -7,13 +7,15 @@ class Book {
         this.date = date;
     }
 
-    changeStatus(){
+    changeStatus(){ 
+        // Marca que o livro foi lido e adiciona a data da conclusão da leitura
         this.read = !this.read
         this.updateDate()
     }
 
-    updateDate(){
-        this.date = this.read ? new Date(): 'blank';
+    updateDate(){ 
+        //Altera a data da conclusão da leitura caso o livro seja finalizado
+        this.date = this.read ? new Date(): 'blank';//Caso eu queira desmarcar que o livro foi lido ele volta a ter a data como 'blank'
     }
 }
 
@@ -27,19 +29,19 @@ class BookList{
         this.unreadBooks = [];
     }
     
-    addBook(book){
+    addBook(book){ 
         if(this.actualBook){
             this.unreadBooks = [...this.unreadBooks, book]
         }else{
             this.actualBook = book;
         }
-        this.allBooks = [...this.allBooks, book]
+        this.allBooks = [...this.allBooks, book] //Adiciona o livro na lista geral com todos os livros
     }
 
     finishBook(){
         if(this.actualBook){
-        this.actualBook.changeStatus();
-        this.readBooks = [...this.readBooks, this.actualBook]
+        this.actualBook.changeStatus(); //Marca que o livro já foi lido e adiciona a data de conclusão
+        this.readBooks = [...this.readBooks, this.actualBook] //Adiciona na estante de livros lidos
         this.actualBook = this.unreadBooks.shift()
         }else{
             return 'Você não está lendo nenhum livro'
@@ -92,6 +94,7 @@ bookList.addBook(bookTheLordOfTheRings)
 bookList.addBook(bookGameOfThrones)
 
 bookList.finishBook()
+
 const todos = bookList.listAllBooks()
 console.log("todos")
 console.log(todos)
