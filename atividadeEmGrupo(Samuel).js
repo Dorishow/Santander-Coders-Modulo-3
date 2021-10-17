@@ -48,11 +48,12 @@ class BookList{
         }
     }
 
-    getlastBook(){return this.readBooks[(this.readBooks.length -1)]}
+    getlastReadBook(){return this.readBooks[(this.readBooks.length -1)]}
     listAllBooks(){return this.allBooks}
     numberOfReadBooks(){return this.readBooks.length}
     numberOfUnreadBooks(){return this.unreadBooks.length}
     getCurrentBook(){return this.actualBook}
+    nextBookToRead(){return this.unreadBooks[0]}
 }
 
 
@@ -96,22 +97,26 @@ bookList.addBook(bookGameOfThrones)
 
 bookList.finishBook()
 
-const todos = bookList.listAllBooks()
-console.log("todos")
-console.log(todos)
+const todosOsLivros = bookList.listAllBooks()
+console.log("Todos os livros na estante")
+console.log(todosOsLivros)
 
-const ultimo = bookList.getlastBook()
-console.log("ultimo")
-console.log(ultimo)
+const ultimoLivroLido = bookList.getlastReadBook()
+console.log("Ultimo livro lido até então:")
+console.log(ultimoLivroLido)
 
-const nDeLidos = bookList.numberOfReadBooks()
+const nLivrosLidos = bookList.numberOfReadBooks()
 console.log("quantidade de livros lidos")
-console.log(nDeLidos)
+console.log(nLivrosLidos)
 
-const nDeNaoLidos = bookList.numberOfUnreadBooks()
+const nLivrosNaoLidos = bookList.numberOfUnreadBooks()
 console.log("quantidade de livros que ainda não foram lidos")
-console.log(nDeNaoLidos)
+console.log(nLivrosNaoLidos)
 
 const currentBook = bookList.getCurrentBook()
 console.log("Livro que está sendo lido atualmente")
 console.log(currentBook)
+
+const nextBook = bookList.nextBookToRead()
+console.log("Próximo livro a ser lido")
+console.log(nextBook)
