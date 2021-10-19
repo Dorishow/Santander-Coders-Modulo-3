@@ -146,3 +146,5 @@ console.log("Próximo livro a ser lido")
 console.log(bookList.nextBookToRead)
 
 bookList.finishBook()
+
+bookList.finishBook()
