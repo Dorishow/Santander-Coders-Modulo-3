@@ -7,7 +7,6 @@ class Book {
         this.author = author;
         this.read = read;
         this.date = date;
-    
     }
 
     markAsFinished(){ // Atualiza livro foi lido e adiciona a data da conclusão da leitura
@@ -45,7 +44,6 @@ class BookList {
 
     finishBook(){
         if(this.actualBook) {
-
             this.actualBook.markAsFinished(); //Marca que o livro já foi lido e adiciona a data de conclusão
             this.readBooks = [...this.readBooks, this.actualBook] //Adiciona na estante de livros lidos
             this.actualBook = this.unreadBooks.shift()
@@ -60,7 +58,7 @@ class BookList {
     }
 
     get lastReadBook(){ // Retorna o último livro adicionado à estante de livros lidos
-        return this.readBooks[this.readBooks.length - 1] || 'Você não leu nenhum livro ainda'
+        return this.readBooks[this.readBooks.length - 1] || 'Você não concluiu nenhum livro ainda'
     }
     
     get nextBookToRead(){ // Retorna próximo livro a ser lido
@@ -76,16 +74,19 @@ class BookList {
     get currentBook(){ return this.actualBook || 'Você não está lendo nenhum livro atualmente'}
 }
 
+const livrosRepetidos = [{title: '1984',genre: 'dystopian fiction',author: 'George Orwell', read: false, date: '2021-10-19T02:01:36.765Z'},{title: '1984',genre: 'dystopian fiction',author: 'George Orwell', read: false, date: new Date()}]
+
 const livros = [{title: '1984',genre: 'dystopian fiction',author: 'George Orwell', read: true, date: new Date()},{title: 'Macunaíma',genre: 'comedy',author: 'Mario de Andrade', },{title: 'Animal Farm',genre: 'Political satire',author: 'George Orwell',},{title: 'Dracula',genre: 'Terror',author: 'Bram Stoker',read: true,date: new Date()},{title: 'Game of Thrones',genre: 'Fiction',author: 'George Martin',},{title: 'Do mil ao milhão',genre: 'finances',author: 'Thiago Nigro',read: true,date: new Date()},{title: 'O poder do hábito',genre: 'self-knowledge',author: 'Charles Dumingg'},{title: 'Terapia de Guerrilha',genre: 'self-knowledge',author: 'Dr. Italo Marsili'},{title: 'Harry potter e a pedra filosofal',genre: 'Fiction',author: 'J. K. Rowling'},{title: 'Seja foda',genre: 'self-knowledge',author: 'J. K. Rowling',read: true,date: new Date()},{title: 'The lord of the rings',genre: 'Fiction',author: 'J. R. R. Tolkien',}]
 // Os livros (em objetos)
 
 const bookList = new BookList // Instanciando uma nova BookList
 
-livros // Criando uma intancia Book de cada livro, e adicionando na Book list
+livrosRepetidos // Criando uma intancia Book de cada livro, e adicionando na Book list
 .map(livro => new Book(livro)) // Instanciando uma nova classe de livros para cada objeto de livro
 .forEach(book => bookList.addBook(book)) // Adicionando as instanciações de livros na BookList
 
-// Baseado no teste já criado, pode ignorar
+///////////////////////////////////////
+// TESTANDO PRA VER SE TÁ TUDO CERTINO
 
 console.log("Todos os livros na lista")
 console.log(bookList.allBooksList)
