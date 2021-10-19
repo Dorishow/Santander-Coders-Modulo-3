@@ -81,7 +81,7 @@ const livros = [{title: '1984',genre: 'dystopian fiction',author: 'George Orwell
 
 const bookList = new BookList // Instanciando uma nova BookList
 
-livrosRepetidos // Criando uma intancia Book de cada livro, e adicionando na Book list
+livros // Criando uma intancia Book de cada livro, e adicionando na Book list
 .map(livro => new Book(livro)) // Instanciando uma nova classe de livros para cada objeto de livro
 .forEach(book => bookList.addBook(book)) // Adicionando as instanciações de livros na BookList
 
