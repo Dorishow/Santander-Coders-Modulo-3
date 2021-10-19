@@ -74,8 +74,6 @@ class BookList {
     get currentBook(){ return this.actualBook || 'Você não está lendo nenhum livro atualmente'}
 }
 
-const livrosRepetidos = [{title: '1984',genre: 'dystopian fiction',author: 'George Orwell', read: false, date: '2021-10-19T02:01:36.765Z'},{title: '1984',genre: 'dystopian fiction',author: 'George Orwell', read: false, date: new Date()}]
-
 const livros = [{title: '1984',genre: 'dystopian fiction',author: 'George Orwell', read: true, date: new Date()},{title: 'Macunaíma',genre: 'comedy',author: 'Mario de Andrade', },{title: 'Animal Farm',genre: 'Political satire',author: 'George Orwell',},{title: 'Dracula',genre: 'Terror',author: 'Bram Stoker',read: true,date: new Date()},{title: 'Game of Thrones',genre: 'Fiction',author: 'George Martin',},{title: 'Do mil ao milhão',genre: 'finances',author: 'Thiago Nigro',read: true,date: new Date()},{title: 'O poder do hábito',genre: 'self-knowledge',author: 'Charles Dumingg'},{title: 'Terapia de Guerrilha',genre: 'self-knowledge',author: 'Dr. Italo Marsili'},{title: 'Harry potter e a pedra filosofal',genre: 'Fiction',author: 'J. K. Rowling'},{title: 'Seja foda',genre: 'self-knowledge',author: 'J. K. Rowling',read: true,date: new Date()},{title: 'The lord of the rings',genre: 'Fiction',author: 'J. R. R. Tolkien',}]
 // Os livros (em objetos)
 
@@ -86,7 +84,7 @@ livros // Criando uma intancia Book de cada livro, e adicionando na Book list
 .forEach(book => bookList.addBook(book)) // Adicionando as instanciações de livros na BookList
 
 ///////////////////////////////////////
-// TESTANDO PRA VER SE TÁ TUDO CERTINO
+// TESTES DAS FUNCIONALIDADES
 
 console.log("Todos os livros na lista")
 console.log(bookList.allBooksList)
